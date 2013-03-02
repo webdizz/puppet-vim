@@ -1,5 +1,5 @@
-define vim::bundle($source, $home_dir = undef) {
-  if $home_dir == undef {
+define vim::bundle($source, $home_dir = false) {
+  if $home_dir == false {
     $home = "/Users/${::boxen_user}"
   } else {
     $home = $home_dir
@@ -23,8 +23,8 @@ define vim::bundle($source, $home_dir = undef) {
     ]
   }
 
-  repository { "${home_dir}/.vim/bundle/${name}":
+  repository { "${home}/.vim/bundle/${name}":
     source  => $source,
-    require => File["${home_dir}/.vim/autoload/pathogen.vim"]
+    require => File["${home}/.vim/autoload/pathogen.vim"]
   }
 }
