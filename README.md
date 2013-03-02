@@ -1,4 +1,4 @@
-# Wunderlist Puppet Module for Boxen
+# vim Puppet Module for Boxen
 
 Install [vim](http://www.vim.org/) among with [vim-pathogen](https://github.com/tpope/vim-pathogen) and an easy way to install vim bundles.
 
