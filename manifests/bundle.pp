@@ -6,7 +6,7 @@ define vim::bundle($source, $home_dir = false) {
   }
 
   file { ["${home}/.vim/autoload",
-    "/Users/${home}/.vim/bundle"]:
+    "${home}/.vim/bundle"]:
     ensure => directory,
   }
 
