@@ -1,23 +1,25 @@
 define vim::bundle($source, $home_dir = undef) {
   if $home_dir == undef {
-    $home_dir = "/Users/${::boxen_user}"
+    $home = "/Users/${::boxen_user}"
+  } else {
+    $home = $home_dir
   }
 
-  file { ["${home_dir}/.vim/autoload",
-    "/Users/${home_dir}/.vim/bundle"]:
+  file { ["${home}/.vim/autoload",
+    "/Users/${home}/.vim/bundle"]:
     ensure => directory,
   }
 
-  repository { "${home_dir}/.vim/vim-pathogen":
+  repository { "${home}/.vim/vim-pathogen":
     source => 'tpope/vim-pathogen'
   }
 
-  file { "${home_dir}/.vim/autoload/pathogen.vim":
-    target  => "${home_dir}/.vim/vim-pathogen/autoload/pathogen.vim",
+  file { "${home}/.vim/autoload/pathogen.vim":
+    target  => "${home}/.vim/vim-pathogen/autoload/pathogen.vim",
     require => [
-      File["${home_dir}/.vim/autoload"],
-      File["${home_dir}/.vim/bundle"],
-      Repository["${home_dir}/.vim/vim-pathogen"]
+      File["${home}/.vim/autoload"],
+      File["${home}/.vim/bundle"],
+      Repository["${home}/.vim/vim-pathogen"]
     ]
   }
 
