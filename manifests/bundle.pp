@@ -1,6 +1,6 @@
-define vim::bundle($source, $home_dir = false) {
-
-  repository { "/Users/${::boxen_user}/.vim/bundle/${name}":
-    source  => $source,
+define vim::bundle() {
+  $bundle = split($name, '/')
+  repository { "/Users/${::boxen_user}/.vim/bundle/${bundle[1]}":
+    source  => $name,
   }
 }
