@@ -6,8 +6,9 @@ define vim::bundle($source, $home_dir = false) {
   }
 
   file { ["${home}/.vim/autoload",
-    "${home}/.vim/bundle"]:
-    ensure => directory,
+    "${home}/.vim/bundle",
+    ensure  => directory,
+    recurse => true,
   }
 
   repository { "${home}/.vim/vim-pathogen":
