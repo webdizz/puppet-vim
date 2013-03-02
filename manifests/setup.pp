@@ -1,6 +1,6 @@
 class vim::setup {
   file { ["/Users/${::boxen_user}/.vim/autoload",
-    "/Users/${::boxen_user}/.vim/bundle"],
+    "/Users/${::boxen_user}/.vim/bundle"]:
     ensure  => directory,
     recurse => true,
   }
