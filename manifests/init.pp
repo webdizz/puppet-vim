@@ -9,5 +9,6 @@
 # There's an optional home_dir parameter if you use a custom home directory.
 
 class vim {
+  require vim::setup
   package { 'vim': }
 }
