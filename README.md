@@ -2,6 +2,8 @@
 
 Install [vim](http://www.vim.org/) along with [vim-pathogen](https://github.com/tpope/vim-pathogen), an easy way to install vim bundles.
 
+[![Build Status](https://travis-ci.org/boxen/puppet-vim.png?branch=master)](https://travis-ci.org/boxen/puppet-vim)
+
 This package won't interfere the puppet-macvim package.
 
 ## Usage
