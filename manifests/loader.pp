@@ -15,7 +15,7 @@ class vim::loader {
   file_line { 'load_pathogen':
     ensure  => present,
     line    => 'execute pathogen#infect()',
-    path    => "${vim::vimrc}",
-    require => File["${vim::vimrc}"]
+    path    => $vim::vimrc,
+    require => File[$vim::vimrc]
   }
 }
