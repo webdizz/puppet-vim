@@ -1,6 +1,6 @@
-# Installs vim and vundle
-
 class vim($vimdir = "/Users/${::boxen_user}/.vim") {
+
+#  include vim::pathogen
 
   package { 'vim': }
 
@@ -10,8 +10,4 @@ class vim($vimdir = "/Users/${::boxen_user}/.vim") {
     recurse => true,
   }
 
-  repository { "${vimdir}/bundle/vundle":
-    source  => 'gmarik/vundle',
-    require => File["${vimdir}/bundle"]
-  }
 }
