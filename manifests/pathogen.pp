@@ -1,5 +1,7 @@
 class vim::pathogen {
 
+  require vim
+
   repository { "${vim::vimdir}/bundle/vim-pathogen":
     source => 'tpope/vim-pathogen',
     require => File[$vim::vimdir]
@@ -8,6 +10,7 @@ class vim::pathogen {
   file { [$vim::vimdir, "${vim::vimdir}/bundle"]:
     ensure  => directory,
     recurse => true,
+    require => Package['vim'],
   }
 
   define bundle() {
